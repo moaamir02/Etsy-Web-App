@@ -32,7 +32,7 @@ export default function CartItem({ data }) {
           <p className="text-center">{data.name}</p>
         </div>
       </td>
-      <td className="price">{data.price}$</td>
+      <td className="price text-center">{data.price}$</td>
       <td>
         <div className="flex items-center justify-center">
           <button  

@@ -1,0 +1,42 @@
+.banner {
+  background-color: #fffbd8;
+  border: 1px solid
+    var(--clg-color-sem-border-divider, rgba(14, 14, 14, 0.1803921569));
+  padding: 0 64px 0 50px;
+}
+
+.br-clip {
+  clip-path: circle(80% at 50% 80%);
+}
+
+.carouselverticalone {
+  animation: looping 10s linear 0s infinite none;
+}
+
+.verticalcolumnone {
+  max-height: 750px;
+  height: 750px;
+  width: 200px;
+}
+
+.carouselverticaltwo {
+  animation: looping 20s linear infinite reverse;
+  transform: translateY(0%);
+}
+
+.verticalcolumntwo {
+  margin-top: 5rem;
+  max-height: 700px;
+  height: 700px;
+  width: 200px;
+}
+
+
+@keyframes looping {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}

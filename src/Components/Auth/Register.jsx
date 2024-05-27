@@ -1,27 +1,29 @@
 import React, { useState } from "react";
-import {collection, addDoc} from "firebase/firestore"
-import {db} from '../../firebase'
-
+import { collection, addDoc } from "firebase/firestore";
+import { db } from '../../firebase';
 
 export const Register = () => {
+  // Initialize state to hold user data with initial empty values
   const [userData, setUserData] = useState({
     name: "",
     email: "",
     password: "",
   });
 
-  
-
+  // Handle input change and update the state
   const handleChange = (event) => {
     const { name, value } = event.target;
     setUserData({ ...userData, [name]: value });
   };
 
+  // Function to add a new user to Firestore
   const addUser = async () => {
     try {
+      // Add a new document with the user data
       const docRef = await addDoc(collection(db, "user"), {
         user: userData,
       });
+      // Show success toast notification
       toast.success("User registered successfully", {
         position: "top-right",
         autoClose: 5000,
@@ -33,6 +35,7 @@ export const Register = () => {
         theme: "light",
       });
     } catch (error) {
+      // Show error toast notification
       toast.error("Error in registering the user", {
         position: "top-right",
         autoClose: 5000,
@@ -47,10 +50,12 @@ export const Register = () => {
     }
   };
 
+  // Handle form submission
   const handleSubmit = (e) => {
-    e.preventDefault();
-    addUser();
+    e.preventDefault(); // Prevent default form submission
+    addUser(); // Call addUser function to register the user
 
+    // Reset user data state to initial empty values
     setUserData({
       name: "",
       email: "",
@@ -127,3 +132,4 @@ export const Register = () => {
     </>
   );
 };
+
